@@ -1,6 +1,6 @@
 package ru.gb.Lesson1.Figures;
 
-public class Square implements Figure{
+public class Square extends Figure{
     private final float length;
 
     public Square(float length) {

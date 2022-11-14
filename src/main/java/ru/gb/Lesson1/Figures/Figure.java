@@ -1,6 +1,11 @@
 package ru.gb.Lesson1.Figures;
 
-public interface Figure {
-    void draw();
-    void area();
+public abstract class Figure {
+    public void draw() {
+
+    }
+
+    public void area() {
+
+    }
 }

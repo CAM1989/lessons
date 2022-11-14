@@ -1,6 +1,6 @@
 package ru.gb.Lesson1.Figures;
 
-public class Circle implements Figure{
+public class Circle extends Figure{
     private final float radius;
 
     public Circle(float radius) {

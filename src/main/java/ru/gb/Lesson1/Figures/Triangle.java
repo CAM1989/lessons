@@ -1,6 +1,6 @@
 package ru.gb.Lesson1.Figures;
 
-public class Triangle implements Figure{
+public class Triangle extends Figure{
     private final float sideLeft;
     private final float sideRight;
     private final float sideBase;
