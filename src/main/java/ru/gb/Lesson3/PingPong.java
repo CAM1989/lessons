@@ -8,7 +8,7 @@ public class PingPong {
         Thread thread1 = new Thread(() -> {
             synchronized (monitor) {
                 while (true) {
-                    if (flag) {
+                    while (flag) {
                         System.out.println("Ping");
                         try {
                             Thread.sleep(1000);
@@ -16,10 +16,9 @@ public class PingPong {
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
-                    } else {
-                        monitor.notify();
-                        flag = true;
                     }
+                    monitor.notify();
+                    flag = true;
                 }
             }
         });
@@ -28,7 +27,7 @@ public class PingPong {
         Thread thread2 = new Thread(() -> {
             synchronized (monitor) {
                 while (true) {
-                    if (!flag) {
+                    while (!flag) {
                         System.out.println("Pong");
                         try {
                             Thread.sleep(1000);
@@ -36,11 +35,11 @@ public class PingPong {
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
-                    } else {
-                        monitor.notify();
-                        flag = false;
                     }
+                    monitor.notify();
+                    flag = false;
                 }
+
             }
         });
         thread2.start();
